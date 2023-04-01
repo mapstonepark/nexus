@@ -1,5 +1,20 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+
+const SignupSchema = Yup.object().shape({
+  userName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+ 
+});
+
 
 export default function signup() {
   return (
@@ -7,10 +22,12 @@ export default function signup() {
        <h1>You are on the Signup Page</h1>
        <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
+          userName: '',
           email: '',
+          password: '',
+          
         }}
+        validationSchema={SignupSchema}
         onSubmit={(
           values: Values,
           { setSubmitting }: FormikHelpers<Values>
@@ -21,12 +38,13 @@ export default function signup() {
           }, 500);
         }}
       >
+        {({ errors, touched }) => (
         <Form>
-          <label htmlFor="firstName">First Name</label>
-          <Field id="firstName" name="firstName" placeholder="John" />
-
-          <label htmlFor="lastName">Last Name</label>
-          <Field id="lastName" name="lastName" placeholder="Doe" />
+          <label htmlFor="userName">Username</label>
+          <Field id="userName" name="userName" placeholder="John" />
+          {errors.userName && touched.userName ? (
+             <div>{errors.userName}</div>
+           ) : null}
 
           <label htmlFor="email">Email</label>
           <Field
@@ -35,9 +53,20 @@ export default function signup() {
             placeholder="john@acme.com"
             type="email"
           />
+          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+
+          <label htmlFor="password">Password</label>
+          <Field id="password" name="password" placeholder="Password" type='password' />
+
+          <label htmlFor="password">Confirm Password</label>
+          <Field id="password" name="password" placeholder="Password" type='password' />
+
+          
+        
 
           <button type="submit">Submit</button>
         </Form>
+          )}
       </Formik>
 
     </>
