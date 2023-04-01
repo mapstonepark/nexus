@@ -1,10 +1,10 @@
 import React from 'react'
-import Card from '../components/Card'
+
 import Link from 'next/link'
 
 export default function login() {
   return (
-    <Card />
+    <h1>You are on the the Login Page</h1>
   )
 }
 
