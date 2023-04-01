@@ -8,13 +8,18 @@ const SignupSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+  password: Yup
+  .string()
+  .required('Password is required')
+  .min(5, 'Your password is too short.'),
+  confirmPassword: Yup
+    .string()
+    .oneOf([Yup.ref('password'), null], 'This is embarrassing but your passwords do not match. Wanna try again?')
   
  
 });
+
+
 
 
 export default function signup() {
@@ -61,6 +66,7 @@ export default function signup() {
 
           <label htmlFor="password">Confirm Password</label>
           <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" type='password' />
+          {errors.confirmPassword && touched.confirmPassword ? <div>{errors.confirmPassword}</div> : null}
 
           
         
