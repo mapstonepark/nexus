@@ -1,0 +1,12 @@
+.title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+  }
+
+  .container {
+    background-color: azure;
+    width: 50vw;
+    height: 50vh;
+    
+  }
