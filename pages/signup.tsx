@@ -12,6 +12,7 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
+  
  
 });
 
@@ -59,7 +60,7 @@ export default function signup() {
           <Field id="password" name="password" placeholder="Password" type='password' />
 
           <label htmlFor="password">Confirm Password</label>
-          <Field id="password" name="password" placeholder="Password" type='password' />
+          <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" type='password' />
 
           
         
