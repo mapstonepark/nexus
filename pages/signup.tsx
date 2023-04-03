@@ -15,11 +15,8 @@ const SignupSchema = Yup.object().shape({
   confirmPassword: Yup
     .string()
     .oneOf([Yup.ref('password'), null], 'This is embarrassing but your passwords do not match. Wanna try again?')
-  
- 
+
 });
-
-
 
 
 export default function signup() {
@@ -31,6 +28,7 @@ export default function signup() {
           userName: '',
           email: '',
           password: '',
+          confirmPassword: '',
           
         }}
         validationSchema={SignupSchema}
@@ -67,9 +65,6 @@ export default function signup() {
           <label htmlFor="password">Confirm Password</label>
           <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" type='password' />
           {errors.confirmPassword && touched.confirmPassword ? <div>{errors.confirmPassword}</div> : null}
-
-          
-        
 
           <button type="submit">Submit</button>
         </Form>

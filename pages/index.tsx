@@ -17,6 +17,8 @@ export async function getServerSideProps(context) {
     // Then you can execute queries against your database like so:
     // db.find({}) or any of the MongoDB Node Driver commands
 
+
+
     return {
       props: { isConnected: true },
     }
@@ -34,7 +36,7 @@ export default function Home({
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Tovaras | Homepage</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
