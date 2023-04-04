@@ -2,8 +2,10 @@ import Head from 'next/head'
 import clientPromise from '../lib/mongodb'
 import { InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
+import { SessionProvider} from 'next-auth/react'
 import login from './login'
 import signup from './signup'
+
 
 export async function getServerSideProps(context) {
   try {
@@ -31,9 +33,10 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home({
-  isConnected,
+  isConnected, session
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
+    <SessionProvider session={session}>
     <div className="container">
       <Head>
         <title>Tovaras | Homepage</title>
@@ -219,5 +222,6 @@ export default function Home({
         }
       `}</style>
     </div>
+    </SessionProvider>
   )
 }

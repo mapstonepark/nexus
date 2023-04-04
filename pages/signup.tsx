@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+
 const SignupSchema = Yup.object().shape({
   userName: Yup.string()
     .min(2, 'Too Short!')

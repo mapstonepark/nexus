@@ -1,11 +1,31 @@
 import React from 'react'
+import { useSession, signIn, signOut} from 'next-auth/react'
 
-import Link from 'next/link'
 
 export default function login() {
-  return (
-    <h1>You are on the the Login Page</h1>
-  )
-}
+  
+  const { data: session} = useSession();
+
+    if(session){
+      return (
+        <>
+        <div><p>Welcome, {session.user.email}</p></div>
+        <button onClick={()=> signOut()}>Sign Out</button>
+        </>
+      )
+      }else {
+        return (
+          <>
+          <div><p>You are not signed in.</p></div>
+          <button onClick={()=> signIn()}>Sign in</button>
+          
+          </>
+        )
+        
+      }
+    }
+    
+  
+
 
 
