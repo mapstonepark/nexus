@@ -10,7 +10,7 @@ export default function login() {
     if(session){
       return (
         <div>
-          <p>Welcome, {session.user.email}</p>
+          <p>Welcome, {session.user.name}</p>
         <button onClick={()=> signOut()}>Sign Out</button>
         </div>
        
