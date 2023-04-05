@@ -2,9 +2,8 @@ import Head from 'next/head'
 import clientPromise from '../lib/mongodb'
 import { InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
-import { SessionProvider} from 'next-auth/react'
-import login from './login'
-import signup from './signup'
+
+
 
 
 export async function getServerSideProps(context) {
@@ -33,10 +32,10 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home({
-  isConnected, session
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  isConnected
+}: InferGetServerSidePropsType<typeof getServerSideProps> ) {
   return (
-    <SessionProvider session={session}>
+
     <div className="container">
       <Head>
         <title>Tovaras | Homepage</title>
@@ -61,16 +60,7 @@ export default function Home({
        
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
+
 
       <style jsx>{`
         .container {
@@ -222,6 +212,6 @@ export default function Home({
         }
       `}</style>
     </div>
-    </SessionProvider>
+
   )
 }
