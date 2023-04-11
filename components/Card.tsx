@@ -8,8 +8,8 @@ export default function Card() {
    
     <div className={styles.grid}>
           <a href="#" className={styles.card}>
-            <h3>Check Page</h3>
-            <p>You are on the right page.</p>
+            <h3>This is a card</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id voluptatibus voluptates quod non illo numquam rerum eius debitis aspernatur recusandae sint, porro laboriosam maxime facilis labore nobis accusamus ratione quas!</p>
           </a>
     </div>
    

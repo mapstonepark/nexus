@@ -9,12 +9,10 @@
 
 .grid {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
     max-width: 800px;
-    margin-top: 3rem;
+    margin: 3rem;
   }
 
 .card {
@@ -22,7 +20,6 @@
     flex-basis: 45%;
     padding: 1.5rem;
     width: 500px;
-
     text-align: left;
     color: inherit;
     text-decoration: none;
